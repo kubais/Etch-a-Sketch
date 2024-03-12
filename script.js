@@ -13,24 +13,12 @@ function addDiv() {
 }
 addDiv();
 
-// const divs = document.querySelectorAll('.newDiv');
-
-// divs.forEach((newDiv) => {
-//     newDiv.addEventListener('mouseover', () => {
-//         document.getElementsByClassName("newDiv")[1].style.color = "red";
-//     }
-//     )
-// }
-// );
-
-
-// divs.forEach((newDiv) => {
-//     newDiv.addEventListener('mouseout', () => {
-//         document.getElementsByClassName("newDiv")[1].style.color = "blue";
-//     }
-//     )
-// }
-// )
+button = document.querySelector('button');
+let rows;
+button.addEventListener('click', () => {
+    rows = prompt('Enter desired number of squares per side (max 100):', 16);
+    
+})
 
 
 

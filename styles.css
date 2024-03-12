@@ -21,3 +21,9 @@
 .my-color-class {
     background-color: red;
 }
+
+button {
+    padding: 5px;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
