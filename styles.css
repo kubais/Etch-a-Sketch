@@ -17,3 +17,7 @@
     border-radius: 5px;
     /* flex-basis: 6.25%; */
 }
+
+.my-color-class {
+    background-color: red;
+}
