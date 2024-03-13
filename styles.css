@@ -1,22 +1,25 @@
 #container {
     display: flex;
-    width: 1350px;
-    gap: 10px;
-    justify-content: space-around;
+    width: 960px;
+    gap: 1px;
     flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .newDiv {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50px;
-    height: 50px;
+    min-width: 30px;
+    min-height: 30px;
     padding: 10px;
-    border: 2px solid black;
+    border: 1px solid black;
     border-radius: 5px;
-    /* flex-basis: 6.25%; */
+   
 }
+
+
 
 .my-color-class {
     background-color: red;
