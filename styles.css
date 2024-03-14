@@ -1,29 +1,25 @@
-#container {
+.container {
     display: flex;
-    width: 960px;
-    gap: 1px;
-    flex-wrap: wrap;
+    flex-flow: column;
+    width: 1100px;
+    height: 1100px;
+    gap: 2px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.newDiv {
+.row {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 30px;
-    min-height: 30px;
-    padding: 10px;
-    border: 1px solid black;
-    border-radius: 5px;
-    flex: auto;
-   
+    flex-flow: row;
+    height: 100%;
+    gap: 2px;
+
 }
-
-
-
-.my-color-class {
-    background-color: red;
+   
+.cell {
+    border: 1px black;
+    flex: 1;
+    text-align: center;
 }
 
 button {
@@ -31,7 +27,6 @@ button {
     padding: 5px;
     font-size: 15px;
     margin-bottom: 10px;
-
     display: flex;
     margin-left: auto;
     margin-right: auto;

@@ -1,21 +1,26 @@
-let gridStart = 16;
-
-
-let container = document.querySelector('#container');
+const gridStart = 16;
 
 
 
-function Grid(gridSize) {
+
+
+
+function createGrid(gridSize) {
+
+    let container = document.querySelector('.container');
+
     for (let i=0; i<gridSize; i++) {
         
         let row = document.createElement('div');
         row.classList.add('row');
 
         for (let j=0; j<gridSize; j++) {
-            let cell = document.createDocumentFragment('div');
-            cell.classList.add('cell')
+            let cell = document.createElement('div');
+            cell.classList.add('cell');
+            cell.textContent = ('x');
             row.appendChild(cell);
-            }
+        }
+
         container.appendChild(row);
        
     }
@@ -38,7 +43,7 @@ function removeGrid() {
 
 function colorChange (event) {
 	let colorHex =  "#" + (Math.random()	* 0xFFFFFF<<0).toString(16);
-    event.targe.style.backgroundColor = `${colorHex}`;    
+    event.target.style.backgroundColor = `${colorHex}`;    
 }
 
 
@@ -55,20 +60,19 @@ function playerSize () {
     }
     else {
         removeGrid();
-        grid(playerGrid);
+        createGrid(playerGrid);
     };
     
 }
 
 
-grid(gridStart);
+createGrid(gridStart);
 
 let settingsButton = document.querySelector('button');
 settingsButton.addEventListener('click', playerSize);
 
     
     
-
 
 
 
