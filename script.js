@@ -1,72 +1,74 @@
-const container = document.querySelector('#container');
+let gridStart = 16;
 
-function addDivStart() {
-    for (let i=1; i<=289; i++) {
+
+let container = document.querySelector('#container');
+
+
+
+function Grid(gridSize) {
+    for (let i=0; i<gridSize; i++) {
         
-        const newDiv = document.createElement('div');
-        // newDiv.textContent = "x";
-        newDiv.setAttribute("class", "newDiv");
-        container.appendChild(newDiv);
+        let row = document.createElement('div');
+        row.classList.add('row');
 
-        newDiv.addEventListener('mouseover', e => e.target.classList.add('my-color-class') );
+        for (let j=0; j<gridSize; j++) {
+            let cell = document.createDocumentFragment('div');
+            cell.classList.add('cell')
+            row.appendChild(cell);
+            }
+        container.appendChild(row);
+       
     }
-}
-addDivStart();
 
-function removeAllChildNodes(parent) {
-    while (parent.firstChild) {
-        parent.removeChild(parent.firstChild);
-    }
-}
-
-
-
-function randomColor (colorHex) {
-	colorHex =  "#" + (Math.random()	* 0xFFFFFF<<0).toString(16);
-    console.log(colorHex);
-    return colorHex;
+    let cells = document.querySelectorAll(".cell");
+    cells.forEach((cell) => {
+        addEventListener('mouseover', (event) => {
+            colorChange(event);
+        });
+    });
 }
 
-function addDivSettings() {
-    for (let i=1; i<=rows; i++) {
-    
-        const newDiv = document.createElement('div');
-        // newDiv.textContent = "x";
-        newDiv.setAttribute("class", "newDiv");
-        container.appendChild(newDiv);
 
-        // newDiv.addEventListener('mouseover', e => e.target.style.backgroundColor = '${randomColor()}'); //to have random color
-        newDiv.addEventListener('mouseover', e => e.target.classList.add('my-color-class') ); // to change only to red
-        
-    }
+function removeGrid() {
+    let rows = document.querySelectorAll('.row');
+    rows.forEach((row) => row.remove());    
 }
-let rows;
+
+
+
+function colorChange (event) {
+	let colorHex =  "#" + (Math.random()	* 0xFFFFFF<<0).toString(16);
+    event.targe.style.backgroundColor = `${colorHex}`;    
+}
+
+
 
 function playerSize () {
-    rows = parseInt(prompt('Enter desired number of squares per side (max 100):', 17));
-    if (rows < 1 || rows > 100) {
+    let playerGrid = parseInt(prompt('Enter desired number of squares per side (max 100):', 16));
+    if (playerGrid < 1 || playerGrid > 100) {
         alert("Please enter number between 1 and 100");
         playerSize();
         }
-    else if (isNaN(rows)) {
+    else if (isNaN(playerGrid)) {
         alert("Please enter a number");
         playerSize();
     }
     else {
-        rows = rows * rows
-        addDivSettings();
+        removeGrid();
+        grid(playerGrid);
     };
     
 }
 
-button = document.querySelector('button');
-button.addEventListener('click', () => {
+
+grid(gridStart);
+
+let settingsButton = document.querySelector('button');
+settingsButton.addEventListener('click', playerSize);
+
     
-    removeAllChildNodes(container)
-    playerSize();     
     
-    
-})
+
 
 
 
