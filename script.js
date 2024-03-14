@@ -17,7 +17,6 @@ function createGrid(gridSize) {
         for (let j=0; j<gridSize; j++) {
             let cell = document.createElement('div');
             cell.classList.add('cell');
-            cell.textContent = ('x');
             row.appendChild(cell);
         }
 
@@ -42,8 +41,18 @@ function removeGrid() {
 
 
 function colorChange (event) {
-	let colorHex =  "#" + (Math.random()	* 0xFFFFFF<<0).toString(16);
-    event.target.style.backgroundColor = `${colorHex}`;    
+
+    if (!event.target.style.backgroundColor) {        
+        let colorHex =  "#" + (Math.random()	* 0xFFFFFF<<0).toString(16);
+        event.target.style.backgroundColor = `${colorHex}`;    
+        // event.target.style.opacity = '.1';
+    }
+
+    //  else {
+    //      let opacity = +event.target.style.opacity;
+    //      opacity += .1;
+    //      event.target.style.opacity = opacity;
+    //  }
 }
 
 
