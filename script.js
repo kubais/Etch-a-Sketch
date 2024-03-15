@@ -20,13 +20,13 @@ function createGrid(gridSize) {
             row.appendChild(cell);
         }
 
-        container.appendChild(row);
-       
+        container.appendChild(row);       
     }
 
     let cells = document.querySelectorAll(".cell");
+
     cells.forEach((cell) => {
-        addEventListener('mouseover', (event) => {
+        cell.addEventListener('mouseover', (event) => {
             colorChange(event);
         });
     });
@@ -43,7 +43,7 @@ function removeGrid() {
 function colorChange (event) {
 
     if (!event.target.style.backgroundColor) {        
-        let colorHex =  "#" + (Math.random()	* 0xFFFFFF<<0).toString(16);
+        let colorHex =  "#" + (Math.random() * 0xFFFFFF<<0).toString(16);
         event.target.style.backgroundColor = `${colorHex}`;    
         // event.target.style.opacity = '.1';
     }
